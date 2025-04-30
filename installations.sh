@@ -3,11 +3,9 @@
 sudo apt -y -qq update && sudo apt -y -qq upgrade
 
 sudo apt -y -qq install zsh flatpak tmux vim
-
-mkdir -p $HOME/work $HOME/.config/nvim 
-touch .tmux.conf
-
 # Install obsidian
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 echo "===== OBSIDIAN ====="
 flatpak install flathub md.obsidian.Obsidian
 echo "===== END OBSIDIAN ====="
@@ -48,7 +46,9 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit -D -t /usr/local/bin/
+echo "===== END GIT====="
 
+echo "===== VIM / NVIM ====="
 # VIM and NVIM
 # Copy .vimrc
 cp ./configs/static/.vimrc $HOME/.vimrc
@@ -62,4 +62,6 @@ mv squashfs-root /
 ln -s /squashfs-root/AppRun /usr/bin/nvim
 # Install personnal configuration
 git clone https://github.com/gytar/nvim-config.git $HOME/.config/nvim 
+echo "===== END VIM / NVIM ====="
+
 
