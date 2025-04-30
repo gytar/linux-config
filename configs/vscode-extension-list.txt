@@ -1,0 +1,10 @@
+esbenp.prettier-vscode
+ms-python.black-formatter
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+redhat.ansible
+redhat.vscode-yaml
+vscode-icons-team.vscode-icons
+vscodevim.vim
+
