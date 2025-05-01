@@ -6,11 +6,10 @@ sudo apt -y -qq install zsh flatpak tmux vim fzf nodejs npm
 # Install obsidian
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-echo "===== OBSIDIAN ====="
 # after reboot. 
-# flatpak install flathub md.obsidian.Obsidian
+echo "===== FLATPAKS ====="
 # flatpak install flathub org.gimp.GIMP
-echo "===== END OBSIDIAN ====="
+echo "===== END FLATPAKS ====="
 
 # Install codeium
 echo "===== CODIUM ======"
@@ -41,9 +40,8 @@ wget -O - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Casca
 unzip CascadiaCode.zip 
 mkdir -p $HOME/.local/share/fonts
 mv CascadiaCode/* $HOME/.local/share/fonts
-
-
 echo "===== END ZSH ====="
+
 echo "===== WEZTERM ====="
 sudo apt -y -qq update
 sudo apt -y -qq install wezterm 
@@ -128,7 +126,9 @@ chmod +x install-opentofu.sh
 # Remove the installer:
 rm -f install-opentofu.sh
 
-
+echo "===== virtualization ======"
+sudo apt install qemu-system libvirt-daemon-system
+sudo adduser $USER libvirt 
 
 # python3 -m pip install --user ansible
 
